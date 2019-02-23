@@ -6,11 +6,14 @@ import java.util.List;
 public class CardIssuerDetector implements IDetector {
     @Override
     public String detect(String cardNumber) {
-
-
-
-
-        return null;
+        String result = "Unknown";
+        for (IssuerRule rule : getIssuerRules()) {
+            if(cardNumber.startsWith(rule.getPrefix()) && cardNumber.length() == rule.getLength()) {
+                result = rule.getName();
+                break;
+            }
+        }
+        return result;
     }
 
     private List<IssuerRule> getIssuerRules() {
