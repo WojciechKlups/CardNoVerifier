@@ -34,6 +34,19 @@ public class CardIssuerDetectorTest {
         //Then
         Assert.assertEquals(expectedResult, result);
     }
+    @Test
+    public void shouldReturnAmericanExpress() {
+        //Given
+        final String cardNumber = "340000000000000";
+        final String expectedResult = "American Express";
+        final IDetector detector = new CardIssuerDetector();
+
+        //When
+        String result = detector.detect(cardNumber);
+
+        //Then
+        Assert.assertEquals(expectedResult, result);
+    }
 
     @Test
     public void shouldReturnUnknown() {
