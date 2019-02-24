@@ -18,9 +18,15 @@ public class IssuerRuleBuilder {
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
             String line;
+            boolean isFirstLine = false;
+
             while ((line = bufferedReader.readLine()) != null) {
-                String[] values = line.split(";");
-                issuerRules.add(new IssuerRule(values[0], values[1], Integer.parseInt(values[2])));
+                if (isFirstLine) {
+                    String[] values = line.split(";");
+                    issuerRules.add(new IssuerRule(values[0], values[1], Integer.parseInt(values[2])));
+                } else {
+                    isFirstLine=true;
+                }
             }
         } catch (FileNotFoundException e) {
             throw new ListingNotFoundException("The file was not found!");

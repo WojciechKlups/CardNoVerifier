@@ -7,7 +7,8 @@ public class CardIssuerDetector implements IDetector {
     @Override
     public String detect(String cardNumber) {
         String result = "Unknown";
-        for (IssuerRule rule : getIssuerRules()) {
+        List<IssuerRule> issuerRules = getIssuerRules();
+        for (IssuerRule rule : issuerRules) {
             if(cardNumber.startsWith(rule.getPrefix()) && cardNumber.length() == rule.getLength()) {
                 result = rule.getName();
                 break;
@@ -17,11 +18,9 @@ public class CardIssuerDetector implements IDetector {
     }
 
     private List<IssuerRule> getIssuerRules() {
-        List<IssuerRule> issuerRules = new ArrayList<>();
 
         IssuerRuleBuilder issuerRuleBuilder = new IssuerRuleBuilder();
 
-        issuerRuleBuilder.buildIssuerRules();
-        return issuerRules;
+        return issuerRuleBuilder.buildIssuerRules();
     }
 }
