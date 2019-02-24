@@ -12,7 +12,7 @@ public class CardIssuerDetectorTest {
         //Given
         final String cardNumber = "5500000000000000";
         final String expectedResult = "Master Card";
-        final String filePath = "C:\\Users\\Wojtek\\IdeaProjects\\SDA_J13_CreditCards\\src\\main\\Resources\\issuers.csv";
+        final String filePath = null;
         final IDetector detector = new CardIssuerDetector();
 
         //When
@@ -27,7 +27,7 @@ public class CardIssuerDetectorTest {
         //Given
         final String cardNumber = "4500000000000000";
         final String expectedResult = "Visa";
-        final String filePath = "C:\\myrules.csv";
+        final String filePath = null;
         final IDetector detector = new CardIssuerDetector();
 
         //When
@@ -41,7 +41,7 @@ public class CardIssuerDetectorTest {
         //Given
         final String cardNumber = "340000000000000";
         final String expectedResult = "American Express";
-        final String filePath = "C:\\myrules.csv";
+        final String filePath = null;
         final IDetector detector = new CardIssuerDetector();
 
         //When
@@ -56,7 +56,7 @@ public class CardIssuerDetectorTest {
         //Given
         final String cardNumber = "0000000000000000";
         final String expectedResult = "Unknown";
-        final String filePath = "C:\\myrules.csv";
+        final String filePath = null;
         final IDetector detector = new CardIssuerDetector();
 
         //When
