@@ -23,7 +23,7 @@ public class IssuerRuleBuilder {
                     String[] values = line.split(";");
                     issuerRules.add(new IssuerRule(values[0], values[1], Integer.parseInt(values[2])));
                 } else {
-                    isFirstLine=true;
+                    isFirstLine = true;
                 }
             }
         } catch (FileNotFoundException e) {
