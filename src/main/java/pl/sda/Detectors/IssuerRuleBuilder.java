@@ -9,8 +9,6 @@ public class IssuerRuleBuilder {
     public List<IssuerRule> buildIssuerRules() {
         List<IssuerRule> issuerRules = new ArrayList<>();
 
-        //TODO: zbudować listę issuer rules korzystając z pliku issuer.csv (na zasadzie MappingFileReader).
-
         File issuers = new File ("C:\\Users\\Wojtek\\IdeaProjects\\SDA_J13_CreditCards\\src\\main\\Resources\\issuers.csv");
 
         try {
