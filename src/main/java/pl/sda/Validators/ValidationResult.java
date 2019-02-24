@@ -20,4 +20,11 @@ public class ValidationResult {
     public void setIsluhnPassed(boolean isluhnPassed) {
         this.isluhnPassed = isluhnPassed;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        ValidationResult comp = (ValidationResult) obj;
+
+        return issuerName.equals(comp.getIssuerName()) && isluhnPassed == comp.isluhnPassed;
+    }
 }

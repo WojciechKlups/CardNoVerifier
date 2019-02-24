@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 
 public class CreditCardValidatorTest {
 
-//    5149273068100605
+//            5149273068100605
 //            5538952797967959
 //            5551001284342458
 //            5205143106994957
@@ -66,6 +66,21 @@ public class CreditCardValidatorTest {
         //Then
         Assert.assertEquals(expectedIssuer, result.getIssuerName());
         Assert.assertTrue(result.isIsluhnPassed());
+    }
+
+    @Test
+    public void shouldReturnMasterCardAndTrueFor5205143106994957v2(){
+        //Given
+        final String cardNumber = "5205143106994957";
+        final ValidationResult expectedResult = new ValidationResult();
+        expectedResult.setIssuerName("Master Card");
+        expectedResult.setIsluhnPassed(true);
+
+        CreditCardValidator creditCardValidator = new CreditCardValidator();
+        //When
+        ValidationResult result = creditCardValidator.validate(cardNumber);
+        //Then
+        Assert.assertEquals(expectedResult, result);
     }
 
 }
