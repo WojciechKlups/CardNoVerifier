@@ -5,9 +5,9 @@ import java.util.List;
 
 public class CardIssuerDetector implements IDetector {
     @Override
-    public String detect(String cardNumber) {
+    public String detect(String cardNumber, String customFilePath) {
         String result = "Unknown";
-        List<IssuerRule> issuerRules = getIssuerRules();
+        List<IssuerRule> issuerRules = getIssuerRules(customFilePath);
         for (IssuerRule rule : issuerRules) {
             if(cardNumber.startsWith(rule.getPrefix()) && cardNumber.length() == rule.getLength()) {
                 result = rule.getName();
@@ -17,10 +17,10 @@ public class CardIssuerDetector implements IDetector {
         return result;
     }
 
-    private List<IssuerRule> getIssuerRules() {
+    private List<IssuerRule> getIssuerRules(String customFilePath) {
 
         IssuerRuleBuilder issuerRuleBuilder = new IssuerRuleBuilder();
 
-        return issuerRuleBuilder.buildIssuerRules();
+        return issuerRuleBuilder.buildIssuerRules(customFilePath);
     }
 }

@@ -12,10 +12,11 @@ public class CardIssuerDetectorTest {
         //Given
         final String cardNumber = "5500000000000000";
         final String expectedResult = "Master Card";
+        final String filePath = "C:\\Users\\Wojtek\\IdeaProjects\\SDA_J13_CreditCards\\src\\main\\Resources\\issuers.csv";
         final IDetector detector = new CardIssuerDetector();
 
         //When
-        String result = detector.detect(cardNumber);
+        String result = detector.detect(cardNumber, filePath);
 
         //Then
         Assert.assertEquals(expectedResult, result);
@@ -26,10 +27,11 @@ public class CardIssuerDetectorTest {
         //Given
         final String cardNumber = "4500000000000000";
         final String expectedResult = "Visa";
+        final String filePath = "C:\\myrules.csv";
         final IDetector detector = new CardIssuerDetector();
 
         //When
-        String result = detector.detect(cardNumber);
+        String result = detector.detect(cardNumber, filePath);
 
         //Then
         Assert.assertEquals(expectedResult, result);
@@ -39,10 +41,11 @@ public class CardIssuerDetectorTest {
         //Given
         final String cardNumber = "340000000000000";
         final String expectedResult = "American Express";
+        final String filePath = "C:\\myrules.csv";
         final IDetector detector = new CardIssuerDetector();
 
         //When
-        String result = detector.detect(cardNumber);
+        String result = detector.detect(cardNumber, filePath);
 
         //Then
         Assert.assertEquals(expectedResult, result);
@@ -53,10 +56,11 @@ public class CardIssuerDetectorTest {
         //Given
         final String cardNumber = "0000000000000000";
         final String expectedResult = "Unknown";
+        final String filePath = "C:\\myrules.csv";
         final IDetector detector = new CardIssuerDetector();
 
         //When
-        String result = detector.detect(cardNumber);
+        String result = detector.detect(cardNumber, filePath);
 
         //Then
         Assert.assertEquals(expectedResult, result);

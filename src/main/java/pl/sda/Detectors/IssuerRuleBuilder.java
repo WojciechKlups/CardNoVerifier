@@ -1,15 +1,39 @@
 package pl.sda.Detectors;
 
+import pl.sda.App;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class IssuerRuleBuilder {
 
-    public List<IssuerRule> buildIssuerRules() {
+    public List<IssuerRule> buildIssuerRules(String customFilePath) {
         List<IssuerRule> issuerRules = new ArrayList<>();
+        String path = ("C:\\Users\\Wojtek\\IdeaProjects\\SDA_J13_CreditCards\\src\\main\\Resources\\issuers.csv");
 
-        File issuers = new File ("C:\\Users\\Wojtek\\IdeaProjects\\SDA_J13_CreditCards\\src\\main\\Resources\\issuers.csv");
+        if (customFilePath != null) {
+            path = customFilePath;
+        }
+
+        File issuers = new File (path);
+        // metoda try-with-resources
+        //      String resourcePath = getClass()
+        //          .getClassLoader()
+        //          .getResource("issuers.csv")
+        //          .getPath();
+        //         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(resourcePath))) {
+        //              String line;
+        //              while ((line = bufferedReader.readLine()) != null) {
+        //                  itd. jak poniżej.
+        //
+        //              } catch (FileNotFoundException e) {
+        //                  e.printStackTrace();
+        //              } catch (IOException e) {
+        //                  e.printStackTrace();
+        //              }
+        //              return issuerRules;
+
 
         try {
             FileReader fileReader = new FileReader(issuers);
